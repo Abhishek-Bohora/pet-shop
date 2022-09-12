@@ -15,7 +15,7 @@ namespace ToDoList.DataAccessLayer
     {
         MySqlConnection con = new MySqlConnection(Connection.connectionString);
 
-        #region Order Details
+        #region Select Breed Type
         public DataTable SelectBreedByPetType(int petType)
         {
             DataTable dt = new DataTable();

@@ -46,7 +46,7 @@ namespace ToDoList.DataAccessLayer
             try
             {
                 DataTable dt = new DataTable();
-                string query = $"select * from order_details where username='{Login.username}' ";
+                string query = $" "; // query to join two tables and fetching necessary data
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 con.Open();

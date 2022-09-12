@@ -48,12 +48,12 @@ namespace ToDoList.Views
             OrderDetailsDAL OrderDetailsDAL = new OrderDetailsDAL();
             OrderDetailsBLL.username = Login.username; //Login.cs
             OrderDetailsBLL.number = int.Parse(textBox2.Text);
-            OrderDetailsBLL.address = textBox3.Text;
+            OrderDetailsBLL.address = textBox3.Text;           
             var petId = comboBoxPetType.SelectedValue;
             OrderDetailsBLL.petId = Convert.ToInt32(petId);
             var breedId = comboBoxBreed.SelectedValue;
             OrderDetailsBLL.breedId = Convert.ToInt32(breedId);
-
+            OrderDetailsBLL.totalPrice = TotalPrice(Convert.ToInt32(breedId), OrderDetailsBLL.number);
 
             if (OrderDetailsDAL.OrderDetails(OrderDetailsBLL))
             {
@@ -68,6 +68,33 @@ namespace ToDoList.Views
             }
             
         }
+
+        #region Pet Price Per breed
+        public int TotalPrice(int breedId, int quantity)
+        {
+            int total = 0;
+            try
+            {
+                DataTable dt = new DataTable();
+                string query = $"SELECT Price from breed WHERE id = {breedId}";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+                total = quantity * Convert.ToInt32(dt.Rows[0][0]);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return total;
+        } 
+        
+        #endregion
 
         private void PetOrder_Load(object sender, EventArgs e)
         {
@@ -111,7 +138,7 @@ namespace ToDoList.Views
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+         
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)

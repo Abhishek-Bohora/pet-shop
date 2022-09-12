@@ -11,5 +11,6 @@ namespace ToDoList.BusinessLogicLayer
         public int  Id { get; set; }
         public int PetType { get; set; }
         public string BreedName { get; set; }
+        public int Price { get; set; }
     }
 }
