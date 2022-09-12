@@ -9,9 +9,9 @@ namespace ToDoList.BusinessLogicLayer
     public class OrderDetailsBLL
     {
         public string username { get; set; }
-        public string pet { get; set; }
         public int number { get; set; }
-        public int TotalPrice { get; set; }
         public string address { get; set; }
+        public int petId { get; set; }
+        public int breedId { get; set; }
     }
 }

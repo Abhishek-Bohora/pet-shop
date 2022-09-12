@@ -70,9 +70,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogicLayer\BreedBLL.cs" />
     <Compile Include="BusinessLogicLayer\LoginBLL.cs" />
     <Compile Include="BusinessLogicLayer\OrderDetailsBLL.cs" />
     <Compile Include="Connection.cs" />
+    <Compile Include="DataAccessLayer\BreedDAL.cs" />
     <Compile Include="DataAccessLayer\LoginDAL.cs" />
     <Compile Include="DataAccessLayer\OrderDetailsDAL.cs" />
     <Compile Include="DataAccessLayer\RegisterDAL.cs" />
@@ -136,6 +138,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BusinessLogicLayer\NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

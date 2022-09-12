@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,11 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ToDoList.DataAccessLayer;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ToDoList.Views
 {
     public partial class Dashboard : Form
     {
+        public static DataTable dt = new DataTable();
+        MySqlConnection con = new MySqlConnection(Connection.connectionString);
         public Dashboard()
         {
             InitializeComponent();
@@ -20,6 +24,7 @@ namespace ToDoList.Views
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
             this.Hide();
             PetOrder petOrder = new PetOrder();
             petOrder.Show();

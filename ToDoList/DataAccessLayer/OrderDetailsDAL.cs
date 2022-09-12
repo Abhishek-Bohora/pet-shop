@@ -20,7 +20,7 @@ namespace ToDoList.DataAccessLayer
             try
             {               
                 DataTable dt = new DataTable();
-                string query = $"INSERT INTO order_details(username,pet,number,totalPrice,address) VALUES ('{OrderDetails.username}','{OrderDetails.pet}','{OrderDetails.number}','{TotalPriceAsPerQuantity}','{OrderDetails.address}')";
+                string query = $"INSERT INTO order_detail(username,quantity,totalPrice,address, petId, breedId) VALUES ('{OrderDetails.username}','{OrderDetails.number}','0','{OrderDetails.address}',{OrderDetails.petId}, {OrderDetails.breedId})";
                 
                 MySqlCommand cmd = new MySqlCommand(query, con);
             
@@ -38,38 +38,6 @@ namespace ToDoList.DataAccessLayer
                 con.Close();
             }
             return DetailsRecorded;
-        }
-        #endregion
-
-        #region price check per pet
-        public int PriceCheckPerPet(OrderDetailsBLL OrderDetails) {
-            int PricePerPet = 0;
-            
-            try
-            {
-                DataTable dt = new DataTable();
-                string query = $"select Price from pet_price where PetType='{OrderDetails.pet}' ";
-                MySqlCommand cmd = new MySqlCommand(query, con);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                con.Open();
-                da.Fill(dt);
-                if (dt.Rows.Count > 0)
-                {
-                    PricePerPet = dt.Rows[0].Field<int>(0);
-                    TotalPriceAsPerQuantity = PricePerPet * OrderDetails.number;
-                }
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                con.Close();
-            }
-            return TotalPriceAsPerQuantity;
         }
         #endregion
 
