@@ -60,5 +60,10 @@ namespace ToDoList
             Register register = new Register();
             register.Show();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

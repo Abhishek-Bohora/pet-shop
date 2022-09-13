@@ -50,5 +50,10 @@ namespace ToDoList.Views
             //dashboard.Hide();
             login.Show();
         }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
