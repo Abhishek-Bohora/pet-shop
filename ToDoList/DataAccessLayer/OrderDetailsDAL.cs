@@ -21,7 +21,7 @@ namespace ToDoList.DataAccessLayer
             try
             {               
                 DataTable dt = new DataTable();
-                string query = $"INSERT INTO order_detail(username,quantity,totalPrice,address, petId, breedId) VALUES ('{OrderDetails.username}','{OrderDetails.number}','0','{OrderDetails.address}',{OrderDetails.petId}, {OrderDetails.breedId})";
+                string query = $"INSERT INTO order_detail(username,quantity,totalPrice,address, petId, breedId) VALUES ('{OrderDetails.username}','{OrderDetails.number}','{OrderDetails.totalPrice}','{OrderDetails.address}',{OrderDetails.petId}, {OrderDetails.breedId})";
                 
                 MySqlCommand cmd = new MySqlCommand(query, con);
             
@@ -47,7 +47,8 @@ namespace ToDoList.DataAccessLayer
             try
             {
                 DataTable dt = new DataTable();
-                string query = $"SELECT od.username, od.address, ptyp.PetType, bd.breed from order_detail od " +
+                string query = $"SELECT od.username, ptyp.PetType, bd.breed,od.quantity,od.totalPrice,od.address" +
+                    $" from order_detail od " +
                     $"JOIN pet_type ptyp on od.petId = ptyp.id " +
                     $"JOIN breed bd on od.breedId = bd.id " +
                     $"HAVING od.username = \"{Login.username}\";";
