@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ToDoList.BusinessLogicLayer;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ToDoList.DataAccessLayer
 {
@@ -46,7 +47,11 @@ namespace ToDoList.DataAccessLayer
             try
             {
                 DataTable dt = new DataTable();
-                string query = $" "; // query to join two tables and fetching necessary data
+                string query = $"SELECT od.username, od.address, ptyp.PetType, bd.breed from order_detail od " +
+                    $"JOIN pet_type ptyp on od.petId = ptyp.id " +
+                    $"JOIN breed bd on od.breedId = bd.id " +
+                    $"HAVING od.username = \"{Login.username}\";";
+
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 con.Open();
