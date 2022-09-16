@@ -65,5 +65,14 @@ namespace ToDoList
         {
 
         }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            AdminLogin AdminLogin = new AdminLogin();
+            this.Hide();
+            AdminLogin.Show();
+            
+            
+        }
     }
 }
