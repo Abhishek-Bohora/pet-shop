@@ -31,22 +31,37 @@ namespace ToDoList
         private void button1_Click(object sender, EventArgs e)
         {
 
-            LoginBLL login = new LoginBLL();
-            LoginDAL loginDAL = new LoginDAL();
-            login.username = textBox1.Text;
-            login.password = textBox2.Text;
-            bool result = loginDAL.loginCheck(login);
-            if (result)
+            if (textBox1.Text == String.Empty && textBox2.Text == String.Empty)
             {
-                username = textBox1.Text;
-                Dashboard dashboard = new Dashboard();
-                dashboard.Show();
-                this.Hide();
+                MessageBox.Show("Please enter username and password", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
-            else
+            else if (textBox1.Text == String.Empty)
             {
-                MessageBox.Show("Invalid username or password");
+                MessageBox.Show("Please enter username", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
+            else if (textBox2.Text == String.Empty)
+            {
+                MessageBox.Show("Please enter password", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            else {
+                LoginBLL login = new LoginBLL();
+                LoginDAL loginDAL = new LoginDAL();
+                login.username = textBox1.Text;
+                login.password = textBox2.Text;
+                bool result = loginDAL.loginCheck(login);
+                if (result)
+                {
+                    username = textBox1.Text;
+                    Dashboard dashboard = new Dashboard();
+                    dashboard.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username or password");
+                }
+            }
+           
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -57,7 +72,7 @@ namespace ToDoList
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Register register = new Register();
+            AdminDashboard register = new AdminDashboard();
             register.Show();
         }
 
@@ -73,6 +88,11 @@ namespace ToDoList
             AdminLogin.Show();
             
             
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -32,9 +32,7 @@ namespace ToDoList.Views
 
         private void button3_Click(object sender, EventArgs e)
         {
-            OrderDetailsDAL orderDetailsDAL = new OrderDetailsDAL();
-            DataTable dt = orderDetailsDAL.GetOrderDetails();
-            dataGridView1.DataSource = dt;
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -53,7 +51,14 @@ namespace ToDoList.Views
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+            button1.PerformClick();     
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OrderDetailsDAL orderDetailsDAL = new OrderDetailsDAL();
+            DataTable dt = orderDetailsDAL.GetOrderDetails();
+            dataGridView1.DataSource = dt;
         }
     }
 }
