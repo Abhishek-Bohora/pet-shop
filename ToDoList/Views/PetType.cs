@@ -45,6 +45,16 @@ namespace ToDoList.Views
                 con.Close();
             }
             MessageBox.Show("Inserted");
+            this.Close();
+            AdminDashboard adminDashboard = new AdminDashboard();
+            adminDashboard.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Login Login = new Login();
+            this.Close();
+            Login.Show();
         }
     }
 }

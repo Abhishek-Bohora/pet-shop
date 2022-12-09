@@ -122,6 +122,7 @@
             // 
             // comboBoxBreed
             // 
+            this.comboBoxBreed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxBreed.FormattingEnabled = true;
             this.comboBoxBreed.Location = new System.Drawing.Point(346, 187);
             this.comboBoxBreed.Name = "comboBoxBreed";
