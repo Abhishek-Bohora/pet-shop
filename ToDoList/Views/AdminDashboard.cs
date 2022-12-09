@@ -79,7 +79,8 @@ namespace ToDoList.Views
 
         private void AdminDashboard_Load(object sender, EventArgs e)
         {
-
+            textBox2.PasswordChar = '*';
+            textBox3.PasswordChar = '*';
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -94,6 +95,13 @@ namespace ToDoList.Views
             Login Login = new Login();
             this.Close();
             Login.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            PetType petType = new PetType();
+            this.Hide();
+            petType.Show();
         }
     }
 }

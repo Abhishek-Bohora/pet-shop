@@ -132,6 +132,7 @@
             // 
             // comboBoxPetType
             // 
+            this.comboBoxPetType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPetType.FormattingEnabled = true;
             this.comboBoxPetType.Location = new System.Drawing.Point(252, 114);
             this.comboBoxPetType.Name = "comboBoxPetType";

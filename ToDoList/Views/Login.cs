@@ -30,7 +30,7 @@ namespace ToDoList
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            
             if (textBox1.Text == String.Empty && textBox2.Text == String.Empty)
             {
                 MessageBox.Show("Please enter username and password", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -97,7 +97,7 @@ namespace ToDoList
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            textBox2.PasswordChar = '*';
         }
     }
 }
