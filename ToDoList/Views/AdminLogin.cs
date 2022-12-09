@@ -31,6 +31,7 @@ namespace ToDoList.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             //Check this into database
             if (textBox1.Text == "admin" && textBox2.Text == "admin")
             {
@@ -41,6 +42,16 @@ namespace ToDoList.Views
             else {  
                 MessageBox.Show("Username and Password did not match", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
+        }
+
+        private void AdminLogin_Load(object sender, EventArgs e)
+        {
+            textBox2.PasswordChar = '*';
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
